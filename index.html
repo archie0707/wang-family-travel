@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>京都．奈良 六日賞楓行程</title>
+<title>王家京都行</title>
 <style>
   :root{
     --paper:#F7F1E6;
@@ -24,205 +24,117 @@
     line-height:1.75;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:760px;margin:0 auto;padding:0 20px 60px;}
+  .wrap{max-width:780px;margin:0 auto;padding:0 20px 60px;}
+  a{color:inherit;}
 
   /* ---------- Header ---------- */
-  header{
-    position:relative;
-    padding:64px 20px 46px;
-    text-align:center;
-    overflow:hidden;
-  }
+  header{position:relative;padding:56px 20px 30px;text-align:center;overflow:hidden;}
   header::before{
-    content:"";
-    position:absolute;
-    top:0;left:0;right:0;bottom:0;
+    content:"";position:absolute;top:0;left:0;right:0;bottom:0;
     background:
       radial-gradient(circle at 15% 20%, rgba(156,59,43,0.10) 0%, transparent 40%),
       radial-gradient(circle at 85% 10%, rgba(184,134,59,0.14) 0%, transparent 45%),
       radial-gradient(circle at 50% 90%, rgba(62,86,65,0.08) 0%, transparent 50%);
     pointer-events:none;
   }
-  .eyebrow{
-    font-family:"Noto Sans TC",sans-serif;
-    letter-spacing:0.4em;
-    font-size:12px;
-    color:var(--gold);
-    font-weight:600;
-    margin-bottom:14px;
-  }
-  h1{
-    font-size:40px;
-    margin:0 0 10px;
-    font-weight:700;
-    color:var(--maple-deep);
-    letter-spacing:0.06em;
-  }
-  .subtitle{
-    font-family:"Noto Sans TC",sans-serif;
-    font-size:15px;
-    color:#6b5f4f;
-    letter-spacing:0.08em;
-  }
-  .dates{
-    margin-top:18px;
-    display:inline-block;
-    font-family:"Noto Sans TC",sans-serif;
-    font-size:14px;
-    color:var(--ink);
-    background:var(--paper-deep);
-    border:1px solid var(--line);
-    border-radius:30px;
-    padding:8px 26px;
-    letter-spacing:0.05em;
-  }
+  .eyebrow{font-family:"Noto Sans TC",sans-serif;letter-spacing:0.4em;font-size:12px;color:var(--gold);font-weight:600;margin-bottom:14px;}
+  h1{font-size:38px;margin:0 0 10px;font-weight:700;color:var(--maple-deep);letter-spacing:0.06em;}
+  .subtitle{font-family:"Noto Sans TC",sans-serif;font-size:15px;color:#6b5f4f;letter-spacing:0.08em;}
+  .dates{margin-top:18px;display:inline-block;font-family:"Noto Sans TC",sans-serif;font-size:14px;color:var(--ink);background:var(--paper-deep);border:1px solid var(--line);border-radius:30px;padding:8px 26px;letter-spacing:0.05em;}
 
-  /* ---------- Day block ---------- */
-  .day{
-    position:relative;
-    margin-top:52px;
-    border-top:1px solid var(--line);
-    padding-top:28px;
-  }
-  .day-head{
-    display:flex;
-    align-items:baseline;
-    gap:16px;
-    margin-bottom:6px;
-  }
-  .day-num{
+  /* ---------- Top level tabs ---------- */
+  .tabbar{
+    display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+    padding:18px 0 0;margin-bottom:8px;
     font-family:"Noto Sans TC",sans-serif;
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:0.25em;
-    color:#fff;
-    background:var(--maple);
-    padding:5px 14px;
-    border-radius:3px;
-    white-space:nowrap;
   }
-  .day-date{
+  .tabbtn{
+    border:1px solid var(--line);background:var(--paper-deep);color:#6b5f4f;
+    font-size:13.5px;font-weight:600;letter-spacing:0.03em;
+    padding:9px 18px;border-radius:20px;cursor:pointer;
+    transition:all .15s ease;
+  }
+  .tabbtn:hover{background:#e8dcc0;}
+  .tabbtn.active{background:var(--maple);border-color:var(--maple);color:#fff;}
+  .tabpanel{display:none;}
+  .tabpanel.active{display:block;}
+
+  /* ---------- Day sub-tabs ---------- */
+  .daytabbar{
+    display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+    margin:26px 0 0;padding-bottom:18px;border-bottom:1px solid var(--line);
     font-family:"Noto Sans TC",sans-serif;
-    font-size:14px;
-    color:var(--gold);
-    letter-spacing:0.05em;
-    font-weight:600;
   }
-  .day-title{
-    font-size:26px;
-    font-weight:700;
-    color:var(--ink);
-    margin:6px 0 22px;
+  .daybtn{
+    border:1px solid var(--line);background:#fff;color:var(--ink);
+    font-size:12.5px;font-weight:700;letter-spacing:0.05em;
+    padding:7px 13px;border-radius:6px;cursor:pointer;
   }
+  .daybtn .d{display:block;font-size:10px;font-weight:500;color:#9c8f78;margin-top:1px;}
+  .daybtn.active{background:var(--maple-deep);border-color:var(--maple-deep);color:#fff;}
+  .daybtn.active .d{color:#f0d9d0;}
+  .daypanel{display:none;padding-top:28px;}
+  .daypanel.active{display:block;}
+
+  .day-title{font-size:25px;font-weight:700;color:var(--ink);margin:0 0 20px;}
 
   /* ---------- Day banner illustration ---------- */
-  .day-banner{
-    width:100%;
-    height:140px;
-    margin-bottom:24px;
-    border-radius:8px;
-    overflow:hidden;
-    border:1px solid var(--line);
-  }
-  .day-banner svg{ display:block; width:100%; height:100%; }
+  .day-banner{width:100%;height:140px;margin-bottom:24px;border-radius:8px;overflow:hidden;border:1px solid var(--line);}
+  .day-banner svg{display:block;width:100%;height:100%;}
 
   /* ---------- Timeline items ---------- */
-  .item{
-    position:relative;
-    padding-left:30px;
-    margin-bottom:18px;
-  }
-  .item::before{
-    content:"";
-    position:absolute;
-    left:6px;
-    top:8px;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--gold);
-  }
-  .item::after{
-    content:"";
-    position:absolute;
-    left:9.5px;
-    top:18px;
-    bottom:-18px;
-    width:1px;
-    background:var(--line);
-  }
-  .day .item:last-child::after{ display:none; }
+  .item{position:relative;padding-left:30px;margin-bottom:18px;}
+  .item::before{content:"";position:absolute;left:6px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--gold);}
+  .item::after{content:"";position:absolute;left:9.5px;top:18px;bottom:-18px;width:1px;background:var(--line);}
+  .daypanel .item:last-child::after{display:none;}
 
-  .item-time{
-    font-family:"Noto Sans TC",sans-serif;
-    font-size:13px;
-    font-weight:700;
-    color:var(--maple-deep);
-    letter-spacing:0.03em;
-    display:block;
-    margin-bottom:3px;
-  }
-  .item-tag{
-    display:inline-block;
-    font-family:"Noto Sans TC",sans-serif;
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:0.05em;
-    color:var(--pine);
-    background:#E7ECE5;
-    border-radius:3px;
-    padding:1px 8px;
-    margin-right:8px;
-    transform:translateY(-1px);
-  }
-  .item-tag.food{ color:var(--maple-deep); background:#F3E2DC; }
-  .item-tag.move{ color:#4A5A78; background:#E4E9F2; }
-  .item-tag.shop{ color:var(--gold); background:#F3E9D4; }
+  .item-time{font-family:"Noto Sans TC",sans-serif;font-size:13px;font-weight:700;color:var(--maple-deep);letter-spacing:0.03em;display:block;margin-bottom:3px;}
+  .item-tag{display:inline-block;font-family:"Noto Sans TC",sans-serif;font-size:11px;font-weight:600;letter-spacing:0.05em;color:var(--pine);background:#E7ECE5;border-radius:3px;padding:1px 8px;margin-right:8px;transform:translateY(-1px);}
+  .item-tag.food{color:var(--maple-deep);background:#F3E2DC;}
+  .item-tag.move{color:#4A5A78;background:#E4E9F2;}
+  .item-tag.shop{color:var(--gold);background:#F3E9D4;}
 
-  .item-body{ font-size:16.5px; }
-  .item-note{
-    font-family:"Noto Sans TC",sans-serif;
-    font-size:13px;
-    color:#8a7c68;
-    margin-top:3px;
-  }
-  .highlight{
-    color:var(--maple-deep);
-    font-weight:700;
-  }
-  .flag{
-    background:#FCEFC7;
-    border-left:3px solid var(--gold);
-    padding:8px 12px;
-    font-family:"Noto Sans TC",sans-serif;
-    font-size:13.5px;
-    color:#6b5127;
-    margin-top:10px;
-    border-radius:0 4px 4px 0;
-  }
+  .item-body{font-size:16.5px;}
+  .item-note{font-family:"Noto Sans TC",sans-serif;font-size:13px;color:#8a7c68;margin-top:3px;}
+  .highlight{color:var(--maple-deep);font-weight:700;}
+  .flag{background:#FCEFC7;border-left:3px solid var(--gold);padding:8px 12px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;color:#6b5127;margin-top:10px;border-radius:0 4px 4px 0;}
 
-  /* ---------- Footer ---------- */
-  footer{
-    margin-top:60px;
-    padding-top:28px;
-    border-top:1px solid var(--line);
-    text-align:center;
-    font-family:"Noto Sans TC",sans-serif;
-    font-size:12.5px;
-    color:#9c8f78;
-    letter-spacing:0.08em;
-  }
+  .maplink{color:var(--maple-deep);text-decoration:none;border-bottom:1px dotted var(--maple-deep);font-weight:700;}
+  .maplink::after{content:" 📍";font-size:12px;}
 
-  @media print{
-    body{background:#fff;}
-    .day{page-break-inside:avoid;}
-  }
+  /* ---------- Info cards (booking / emergency) ---------- */
+  .card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px;margin-bottom:18px;}
+  .card h3{margin:0 0 12px;font-size:18px;color:var(--maple-deep);font-family:"Noto Serif TC",serif;}
+  .card p{margin:4px 0;font-size:15px;}
+  .card .en{font-family:"Noto Sans TC",sans-serif;font-size:13.5px;color:#6b5f4f;}
+  .card .sub{font-family:"Noto Sans TC",sans-serif;font-size:12.5px;font-weight:700;color:var(--gold);letter-spacing:0.05em;margin:14px 0 6px;text-transform:uppercase;}
+  .card .sub:first-of-type{margin-top:2px;}
+  .card a.link{color:var(--maple-deep);word-break:break-all;font-size:14px;}
+  .card .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:8px 0;border-bottom:1px dashed var(--line);font-size:15px;}
+  .card .row:last-child{border-bottom:none;}
+  .card .row .r-label{color:#8a7c68;font-family:"Noto Sans TC",sans-serif;font-size:12.5px;min-width:70px;}
 
-  @media (max-width:600px){
-    h1{font-size:30px;}
-    .day-title{font-size:21px;}
-    .item-body{font-size:15.5px;}
-  }
+  .sectionhead{font-family:"Noto Sans TC",sans-serif;font-size:14px;font-weight:700;color:var(--pine);margin:30px 0 10px;padding-top:16px;}
+  .sectionhead:first-child{margin-top:0;padding-top:0;}
+
+  /* ---------- Checklist ---------- */
+  .checklist{list-style:none;margin:0;padding:0;}
+  .checklist li{display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px dashed var(--line);font-size:16px;}
+  .checklist input[type=checkbox]{width:18px;height:18px;accent-color:var(--maple);flex-shrink:0;}
+  .checklist li.checked span{text-decoration:line-through;color:#a99d86;}
+
+  /* ---------- Weather ---------- */
+  .weather-table{width:100%;border-collapse:collapse;margin:10px 0 18px;font-family:"Noto Sans TC",sans-serif;font-size:14.5px;}
+  .weather-table th,.weather-table td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center;}
+  .weather-table th{color:var(--gold);font-weight:700;font-size:13px;}
+  .weather-table td.hi{color:var(--maple-deep);font-weight:700;}
+  .weather-table td.lo{color:#4A5A78;font-weight:700;}
+  .weather-btn{display:inline-block;margin-top:6px;background:var(--maple);color:#fff;text-decoration:none;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;font-weight:600;padding:10px 20px;border-radius:20px;}
+
+  footer{margin-top:50px;padding-top:26px;border-top:1px solid var(--line);text-align:center;font-family:"Noto Sans TC",sans-serif;font-size:12.5px;color:#9c8f78;letter-spacing:0.08em;}
+
+  @media print{ body{background:#fff;} .tabpanel{display:block !important;} .daypanel{display:block !important;} .tabbar,.daytabbar{display:none;} }
+  @media (max-width:600px){ h1{font-size:28px;} .day-title{font-size:20px;} .item-body{font-size:15.5px;} }
 </style>
 </head>
 <body>
@@ -230,393 +142,380 @@
 
   <header>
     <div class="eyebrow">FAMILY TRIP · 2026 AUTUMN</div>
-    <h1>京都．奈良 賞楓行</h1>
-    <div class="subtitle">古都散策　嵐山楓紅　伏見千鳥居</div>
+    <h1>王家京都行</h1>
+    <div class="subtitle">古都散策　嵐山竹林　伏見千鳥居</div>
     <div class="dates">10 月 28 日（三）─ 11 月 2 日（一）　共 6 天 5 夜</div>
   </header>
 
-  <!-- Day 1 -->
-  <section class="day">
-    <div class="day-head">
-      <span class="day-num">DAY 1</span>
-      <span class="day-date">10/28（三）</span>
-    </div>
-    <h2 class="day-title">出發．抵達京都</h2>
+  <!-- ============ TOP TABS ============ -->
+  <div class="tabbar">
+    <button class="tabbtn active" data-tab="itin">每日行程</button>
+    <button class="tabbtn" data-tab="book">預約資訊</button>
+    <button class="tabbtn" data-tab="sos">緊急聯絡</button>
+    <button class="tabbtn" data-tab="prep">行前清單</button>
+    <button class="tabbtn" data-tab="wx">京都天氣</button>
+  </div>
 
-    <div class="day-banner">
-      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- ============ 每日行程 ============ -->
+  <div class="tabpanel active" id="itin">
+    <div class="daytabbar">
+      <button class="daybtn active" data-day="d1">DAY1<span class="d">10/28</span></button>
+      <button class="daybtn" data-day="d2">DAY2<span class="d">10/29</span></button>
+      <button class="daybtn" data-day="d3">DAY3<span class="d">10/30</span></button>
+      <button class="daybtn" data-day="d4">DAY4<span class="d">10/31</span></button>
+      <button class="daybtn" data-day="d5">DAY5<span class="d">11/1</span></button>
+      <button class="daybtn" data-day="d6">DAY6<span class="d">11/2</span></button>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="daypanel active" id="d1">
+      <h2 class="day-title">出發．抵達京都</h2>
+      <div class="day-banner"><svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
         <rect width="720" height="200" fill="#F3E4C4"/>
         <circle cx="610" cy="46" r="26" fill="#B8863B" opacity="0.55"/>
         <path d="M0,150 Q120,105 240,140 T480,128 T720,145 L720,200 L0,200 Z" fill="#3E5641" opacity="0.22"/>
-        <g fill="#7A2C1F">
-          <rect x="330" y="92" width="12" height="62"/>
-          <rect x="416" y="92" width="12" height="62"/>
-          <rect x="316" y="82" width="140" height="11" rx="2"/>
-          <rect x="326" y="101" width="120" height="7"/>
-        </g>
-        <g fill="#2B2420">
-          <path d="M70,68 L150,60 L210,55 L150,52 L70,45 L48,50 L20,42 L14,47 L44,55 L14,60 L20,65 L48,60 Z"/>
-        </g>
-        <g fill="#ffffff" opacity="0.55">
-          <ellipse cx="230" cy="38" rx="26" ry="9"/>
-          <ellipse cx="520" cy="72" rx="34" ry="10"/>
-        </g>
-      </svg>
+        <g fill="#7A2C1F"><rect x="330" y="92" width="12" height="62"/><rect x="416" y="92" width="12" height="62"/><rect x="316" y="82" width="140" height="11" rx="2"/><rect x="326" y="101" width="120" height="7"/></g>
+        <g fill="#2B2420"><path d="M70,68 L150,60 L210,55 L150,52 L70,45 L48,50 L20,42 L14,47 L44,55 L14,60 L20,65 L48,60 Z"/></g>
+        <g fill="#ffffff" opacity="0.55"><ellipse cx="230" cy="38" rx="26" ry="9"/><ellipse cx="520" cy="72" rx="34" ry="10"/></g>
+      </svg></div>
+
+      <div class="item"><span class="item-time">10:50</span><span class="item-tag move">交通</span>
+        <div class="item-body">高鐵 0619 車次　嘉義站 → 左營站</div>
+      </div>
+
+      <div class="item"><span class="item-time">11:20</span>
+        <div class="item-body">抵達左營站，享用午餐</div>
+      </div>
+
+      <div class="item"><span class="item-time">約 13:00</span><span class="item-tag move">交通</span>
+        <div class="item-body">搭乘捷運小港紅線　左營 → 高雄國際機場站（約 28 分鐘）</div>
+      </div>
+
+      <div class="item"><span class="item-time">13:30</span>
+        <div class="item-body">妹妹直接到高雄國際機場國際航廈 3 樓出境大廳 <span class="highlight">C 座櫃檯</span>　長榮航空集合</div>
+      </div>
+
+      <div class="item"><span class="item-time">15:25</span><span class="item-tag move">飛行</span>
+        <div class="item-body">長榮航空 <span class="highlight">BR 148</span>　高雄 → 大阪關西機場</div>
+      </div>
+
+      <div class="item"><span class="item-time">19:15</span>
+        <div class="item-body">班機抵達關西機場，出關後搭乘 <span class="highlight">利木津巴士</span> 直達京都車站八條口</div>
+        <div class="flag">車程約 80 分鐘 🚌</div>
+      </div>
+
+      <div class="item"><span class="item-time">晚間</span><span class="item-tag">住宿</span>
+        <div class="item-body">全家散步約 8～10 分鐘至 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=GLANZ+KEI+Kyoto+Station" target="_blank" rel="noopener">GLANZKEI 京都站前館</a> Check-in 休息</div>
+        <div class="flag">今天會比較晚抵達飯店，阿爸可以先洗澡休息 🛁</div>
+      </div>
     </div>
 
-    <div class="item">
-      <span class="item-time">10:50</span>
-      <span class="item-tag move">交通</span>
-      <div class="item-body">高鐵 0619 車次　嘉義站 → 左營站</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">11:20</span>
-      <div class="item-body">抵達左營站，享用午餐</div>
-      <div class="item-note">最晚 13:00 需離開左營站</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">約 13:00</span>
-      <span class="item-tag move">交通</span>
-      <div class="item-body">搭乘捷運小港紅線　左營 → 高雄國際機場站（約 28 分鐘）</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">13:30</span>
-      <div class="item-body">高雄國際機場國際航廈 3 樓出境大廳 <span class="highlight">C 座櫃檯</span>　長榮航空集合</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">15:25</span>
-      <span class="item-tag move">飛行</span>
-      <div class="item-body">長榮航空 <span class="highlight">BR 148</span>　高雄 → 大阪關西機場</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">19:15</span>
-      <div class="item-body">班機抵達關西機場，出關後搭乘 <span class="highlight">利木津巴士</span> 直達京都車站八條口</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">晚間</span>
-      <span class="item-tag">住宿</span>
-      <div class="item-body">全家散步約 8～10 分鐘至 <span class="highlight">GLANZKEI 京都站前館</span> Check-in 休息</div>
-      <div class="flag">今天會比較晚抵達飯店，阿爸可以先洗澡休息 🛁</div>
-    </div>
-  </section>
-
-  <!-- Day 2 -->
-  <section class="day">
-    <div class="day-head">
-      <span class="day-num">DAY 2</span>
-      <span class="day-date">10/29（四）</span>
-    </div>
-    <h2 class="day-title">古都散策．清水寺周邊</h2>
-
-    <div class="day-banner">
-      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- DAY 2 -->
+    <div class="daypanel" id="d2">
+      <h2 class="day-title">古都散策．清水寺周邊</h2>
+      <div class="day-banner"><svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
         <rect width="720" height="200" fill="#F1E3C8"/>
         <path d="M0,160 Q140,110 280,150 T560,135 T720,155 L720,200 L0,200 Z" fill="#3E5641" opacity="0.2"/>
-        <!-- kiyomizu stage on stilts -->
-        <g fill="#9C3B2B">
-          <rect x="230" y="120" width="260" height="16"/>
-          <rect x="240" y="136" width="10" height="50"/>
-          <rect x="280" y="136" width="10" height="50"/>
-          <rect x="320" y="136" width="10" height="50"/>
-          <rect x="400" y="136" width="10" height="50"/>
-          <rect x="440" y="136" width="10" height="50"/>
-          <rect x="470" y="136" width="10" height="50"/>
-        </g>
-        <g fill="#7A2C1F">
-          <rect x="255" y="88" width="210" height="34" rx="2"/>
-          <polygon points="240,88 480,88 460,66 260,66"/>
-        </g>
-        <!-- maple leaves -->
-        <g fill="#B8863B" opacity="0.85">
-          <circle cx="90" cy="60" r="7"/>
-          <circle cx="120" cy="90" r="6"/>
-          <circle cx="70" cy="100" r="5"/>
-          <circle cx="620" cy="55" r="7"/>
-          <circle cx="650" cy="85" r="6"/>
-        </g>
-      </svg>
+        <g fill="#9C3B2B"><rect x="230" y="120" width="260" height="16"/><rect x="240" y="136" width="10" height="50"/><rect x="280" y="136" width="10" height="50"/><rect x="320" y="136" width="10" height="50"/><rect x="400" y="136" width="10" height="50"/><rect x="440" y="136" width="10" height="50"/><rect x="470" y="136" width="10" height="50"/></g>
+        <g fill="#7A2C1F"><rect x="255" y="88" width="210" height="34" rx="2"/><polygon points="240,88 480,88 460,66 260,66"/></g>
+        <g fill="#B8863B" opacity="0.85"><circle cx="90" cy="60" r="7"/><circle cx="120" cy="90" r="6"/><circle cx="70" cy="100" r="5"/><circle cx="620" cy="55" r="7"/><circle cx="650" cy="85" r="6"/></g>
+      </svg></div>
+
+      <div class="item"><span class="item-time">早上</span><span class="item-tag food">飲食</span>
+        <div class="item-body">睡醒後步行至八條口的 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=イノダコーヒ+八条口支店" target="_blank" rel="noopener">イノダコーヒ 八条口支店</a> 享用早餐</div>
+      </div>
+
+      <div class="item"><span class="item-time">上午</span><span class="item-tag move">交通</span>
+        <div class="item-body">從八條口搭計程車直達 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=清水寺" target="_blank" rel="noopener">清水寺</a></div>
+      </div>
+
+      <div class="item"><span class="item-time">午餐</span><span class="item-tag food">飲食</span>
+        <div class="item-body">於清水寺周邊享用懷石豆腐料理（<a class="maplink" href="https://www.google.com/maps/search/?api=1&query=清水順正+岡本家" target="_blank" rel="noopener">清水順正 岡本家</a> 或 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=奧丹清水" target="_blank" rel="noopener">奧丹清水</a>）</div>
+      </div>
+
+      <div class="item"><span class="item-time">下午</span>
+        <div class="item-body">順著下坡輕鬆漫步：三年坂 → 二年坂 → 寧寧之道，一路散步至 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=八坂神社" target="_blank" rel="noopener">八坂神社</a></div>
+      </div>
+
+      <div class="item"><span class="item-time">晚餐</span><span class="item-tag food">飲食</span>
+        <div class="item-body">搭公車返回京都車站，於站內 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=寿しのむさし+京都駅八条口店" target="_blank" rel="noopener">寿しのむさし 京都駅八条口店</a> 享用壽司</div>
+      </div>
+
+      <div class="item"><span class="item-time">飯後</span><span class="item-tag shop">採買</span>
+        <div class="item-body">散步前往飯店附近的 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=AEON+KOYO+京都" target="_blank" rel="noopener">AEON KOYO 超市</a>，採買明天早餐食材</div>
+      </div>
     </div>
 
-    <div class="item">
-      <span class="item-time">早上</span>
-      <span class="item-tag food">飲食</span>
-      <div class="item-body">睡醒後步行至八條口的 <span class="highlight">イノダコーヒ 八条口支店</span> 享用早餐</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">上午</span>
-      <span class="item-tag move">交通</span>
-      <div class="item-body">從八條口搭計程車直達 <span class="highlight">清水寺</span></div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">午餐</span>
-      <span class="item-tag food">飲食</span>
-      <div class="item-body">於清水寺周邊享用懷石豆腐料理（清水順正 岡本家 或 奧丹清水）</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">下午</span>
-      <div class="item-body">順著下坡輕鬆漫步：三年坂 → 二年坂 → 寧寧之道，一路散步至 <span class="highlight">八坂神社</span></div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">晚餐</span>
-      <span class="item-tag food">飲食</span>
-      <div class="item-body">搭公車返回京都車站，於站內 <span class="highlight">寿しのむさし 京都駅八条口店</span> 享用壽司</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">飯後</span>
-      <span class="item-tag shop">採買</span>
-      <div class="item-body">散步前往飯店附近的 <span class="highlight">AEON KOYO 超市</span>，採買明天早餐食材</div>
-    </div>
-  </section>
-
-  <!-- Day 3 -->
-  <section class="day">
-    <div class="day-head">
-      <span class="day-num">DAY 3</span>
-      <span class="day-date">10/30（五）</span>
-    </div>
-    <h2 class="day-title">嵐山自然風光</h2>
-
-    <div class="day-banner">
-      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- DAY 3 -->
+    <div class="daypanel" id="d3">
+      <h2 class="day-title">嵐山自然風光</h2>
+      <div class="day-banner"><svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
         <rect width="720" height="200" fill="#EFE9D2"/>
         <circle cx="600" cy="45" r="24" fill="#B8863B" opacity="0.5"/>
-        <!-- river -->
         <path d="M0,165 Q360,190 720,165 L720,200 L0,200 Z" fill="#4A5A78" opacity="0.18"/>
-        <!-- bridge -->
         <path d="M120,150 Q360,105 600,150" stroke="#7A2C1F" stroke-width="8" fill="none"/>
-        <g fill="#7A2C1F">
-          <rect x="150" y="148" width="6" height="18"/>
-          <rect x="230" y="128" width="6" height="30"/>
-          <rect x="330" y="118" width="6" height="34"/>
-          <rect x="430" y="128" width="6" height="30"/>
-          <rect x="530" y="148" width="6" height="18"/>
-        </g>
-        <!-- bamboo -->
-        <g fill="#3E5641" opacity="0.7">
-          <rect x="40" y="30" width="10" height="140" rx="4"/>
-          <rect x="60" y="45" width="10" height="125" rx="4"/>
-          <rect x="80" y="20" width="10" height="150" rx="4"/>
-          <rect x="640" y="35" width="10" height="135" rx="4"/>
-          <rect x="662" y="55" width="10" height="115" rx="4"/>
-        </g>
-      </svg>
+        <g fill="#7A2C1F"><rect x="150" y="148" width="6" height="18"/><rect x="230" y="128" width="6" height="30"/><rect x="330" y="118" width="6" height="34"/><rect x="430" y="128" width="6" height="30"/><rect x="530" y="148" width="6" height="18"/></g>
+        <g fill="#3E5641" opacity="0.7"><rect x="40" y="30" width="10" height="140" rx="4"/><rect x="60" y="45" width="10" height="125" rx="4"/><rect x="80" y="20" width="10" height="150" rx="4"/><rect x="640" y="35" width="10" height="135" rx="4"/><rect x="662" y="55" width="10" height="115" rx="4"/></g>
+      </svg></div>
+
+      <div class="item"><span class="item-time">早上</span><span class="item-tag food">飲食</span>
+        <div class="item-body">飯店自煮簡單早餐</div>
+      </div>
+
+      <div class="item"><span class="item-time">上午</span><span class="item-tag move">交通</span>
+        <div class="item-body">京都車站搭 JR 至嵯峨嵐山站</div>
+      </div>
+
+      <div class="item"><span class="item-time">上午</span>
+        <div class="item-body">車站周邊走走（京友禅 光の林／音樂盒堂）</div>
+      </div>
+
+      <div class="item"><span class="item-time">上午</span><span class="item-tag move">交通</span>
+        <div class="item-body">搭乘 嵯峨野嵐山小火車（嵯峨站 ➜ 龜岡站）</div>
+      </div>
+
+      <div class="item"><span class="item-time">中午前</span><span class="item-tag move">交通</span>
+        <div class="item-body">龜岡搭 JR（或原車小火車）折返至「小火車嵐山站」，直接接駁至山頂，順向下坡漫步 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=嵐山竹林小径" target="_blank" rel="noopener">嵐山竹林小径</a></div>
+      </div>
+
+      <div class="item"><span class="item-time">中午前</span>
+        <div class="item-body">參觀 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=天龍寺" target="_blank" rel="noopener">天龍寺</a></div>
+      </div>
+
+      <div class="item"><span class="item-time">午餐</span><span class="item-tag food">飲食</span>
+        <div class="item-body">嵐山商店街／渡月橋畔美食，享用湯豆腐或和牛定食</div>
+      </div>
+
+      <div class="item"><span class="item-time">下午</span>
+        <div class="item-body"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=渡月橋" target="_blank" rel="noopener">渡月橋</a> 散步</div>
+      </div>
+
+      <div class="item"><span class="item-time">傍晚</span><span class="item-tag move">交通</span>
+        <div class="item-body">搭乘 JR 返回京都車站</div>
+      </div>
+
+      <div class="item"><span class="item-time">晚上</span><span class="item-tag food">飲食</span>
+        <div class="item-body">至 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=AEON+KOYO+京都" target="_blank" rel="noopener">AEON KOYO 超市</a> 採買火鍋肉片與在地蔬菜，回飯店煮日式火鍋 🍲</div>
+      </div>
     </div>
 
-    <div class="item">
-      <span class="item-time">早上</span>
-      <span class="item-tag food">飲食</span>
-      <div class="item-body">飯店自煮簡單早餐，之後搭 JR 前往 <span class="highlight">嵐山</span></div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">上午～中午</span>
-      <div class="item-body">搭乘 <span class="highlight">嵯峨野觀光小火車</span> 欣賞保津川峽谷景色，再漫步至渡月橋與平坦的竹林之道</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">傍晚</span>
-      <span class="item-tag move">交通</span>
-      <div class="item-body">搭 JR 返回京都車站</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">晚上</span>
-      <span class="item-tag food">飲食</span>
-      <div class="item-body">至 AEON KOYO 超市採買火鍋肉片與在地蔬菜，回飯店煮日式火鍋 🍲</div>
-    </div>
-  </section>
-
-  <!-- Day 4 -->
-  <section class="day">
-    <div class="day-head">
-      <span class="day-num">DAY 4</span>
-      <span class="day-date">10/31（六）</span>
-    </div>
-    <h2 class="day-title">奈良古都．與鹿同遊</h2>
-
-    <div class="day-banner">
-      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- DAY 4 -->
+    <div class="daypanel" id="d4">
+      <h2 class="day-title">奈良古都．與鹿同遊</h2>
+      <div class="day-banner"><svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
         <rect width="720" height="200" fill="#F2E7CC"/>
         <path d="M0,160 Q140,120 280,150 T560,138 T720,155 L720,200 L0,200 Z" fill="#3E5641" opacity="0.2"/>
-        <!-- todaiji roof -->
-        <g fill="#7A2C1F">
-          <polygon points="470,110 630,110 600,80 500,80"/>
-          <rect x="490" y="110" width="120" height="46"/>
-        </g>
-        <!-- deer x2 -->
-        <g fill="#9C3B2B">
-          <ellipse cx="160" cy="150" rx="34" ry="18"/>
-          <rect x="135" y="158" width="6" height="24"/>
-          <rect x="175" y="158" width="6" height="24"/>
-          <circle cx="196" cy="132" r="12"/>
-          <path d="M204,122 L212,108 M208,124 L220,114" stroke="#7A2C1F" stroke-width="3" fill="none"/>
-        </g>
-        <g fill="#9C3B2B" opacity="0.85">
-          <ellipse cx="260" cy="165" rx="26" ry="14"/>
-          <rect x="242" y="171" width="5" height="19"/>
-          <rect x="272" y="171" width="5" height="19"/>
-          <circle cx="288" cy="150" r="9"/>
-        </g>
-        <!-- ginkgo leaves -->
-        <g fill="#B8863B" opacity="0.8">
-          <circle cx="80" cy="50" r="6"/>
-          <circle cx="110" cy="75" r="5"/>
-          <circle cx="650" cy="55" r="6"/>
-        </g>
-      </svg>
+        <g fill="#7A2C1F"><polygon points="470,110 630,110 600,80 500,80"/><rect x="490" y="110" width="120" height="46"/></g>
+        <g fill="#9C3B2B"><ellipse cx="160" cy="150" rx="34" ry="18"/><rect x="135" y="158" width="6" height="24"/><rect x="175" y="158" width="6" height="24"/><circle cx="196" cy="132" r="12"/><path d="M204,122 L212,108 M208,124 L220,114" stroke="#7A2C1F" stroke-width="3" fill="none"/></g>
+        <g fill="#9C3B2B" opacity="0.85"><ellipse cx="260" cy="165" rx="26" ry="14"/><rect x="242" y="171" width="5" height="19"/><rect x="272" y="171" width="5" height="19"/><circle cx="288" cy="150" r="9"/></g>
+        <g fill="#B8863B" opacity="0.8"><circle cx="80" cy="50" r="6"/><circle cx="110" cy="75" r="5"/><circle cx="650" cy="55" r="6"/></g>
+      </svg></div>
+
+      <div class="item"><span class="item-time">早上</span><span class="item-tag food">飲食</span>
+        <div class="item-body">飯店自煮早餐</div>
+      </div>
+
+      <div class="item"><span class="item-time">10:55</span><span class="item-tag move">交通</span>
+        <div class="item-body">搭乘近鐵觀光特急 <span class="highlight">「AONIYOSHI 青丹吉」</span></div>
+      </div>
+
+      <div class="item"><span class="item-time">11:30</span>
+        <div class="item-body">抵達近鐵奈良車站</div>
+      </div>
+
+      <div class="item"><span class="item-time">午餐</span><span class="item-tag food">飲食</span>
+        <div class="item-body">志津香釜飯（若排隊人數太多，可改選東向商店街的日式定食／麵食）</div>
+      </div>
+
+      <div class="item"><span class="item-time">下午</span>
+        <div class="item-body">散步至 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=東大寺" target="_blank" rel="noopener">東大寺</a>，參觀世界最大的木造建築「大佛殿」</div>
+      </div>
+
+      <div class="item"><span class="item-time">下午</span>
+        <div class="item-body">離開東大寺後，於 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=奈良公園" target="_blank" rel="noopener">奈良公園</a> 大門附近的草地上買鹿仙貝，體驗餵鹿 🦌</div>
+      </div>
+
+      <div class="item"><span class="item-time">下午</span>
+        <div class="item-body">順著平路漫步至鷺池上的 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=浮見堂+奈良" target="_blank" rel="noopener">浮見堂</a></div>
+      </div>
+
+      <div class="item"><span class="item-time">下午</span>
+        <div class="item-body">一路順向下坡走回東向商店街，漫步回近鐵奈良站</div>
+      </div>
+
+      <div class="item"><span class="item-time">傍晚</span><span class="item-tag move">交通</span>
+        <div class="item-body">搭乘近鐵特急返回京都車站</div>
+      </div>
+
+      <div class="item"><span class="item-time">晚餐</span><span class="item-tag food">飲食</span>
+        <div class="item-body">於京都車站內拉麵小路享用拉麵</div>
+      </div>
     </div>
 
-    <div class="item">
-      <span class="item-time">早上</span>
-      <span class="item-tag food">飲食</span>
-      <div class="item-body">飯店自煮早餐</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">上午</span>
-      <span class="item-tag move">交通</span>
-      <div class="item-body">搭乘近鐵觀光特急 <span class="highlight">「AONIYOSHI 青丹吉」</span> 至近鐵奈良車站</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">白天</span>
-      <div class="item-body">奈良公園散步餵鹿 → 遠眺東大寺 → 東向商店街走走 🦌</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">晚餐</span>
-      <span class="item-tag food">飲食</span>
-      <div class="item-body">返回京都車站，於站內拉麵小路享用拉麵</div>
-    </div>
-  </section>
-
-  <!-- Day 5 -->
-  <section class="day">
-    <div class="day-head">
-      <span class="day-num">DAY 5</span>
-      <span class="day-date">11/1（日）</span>
-    </div>
-    <h2 class="day-title">千本鳥居．錦市場．本能寺</h2>
-
-    <div class="day-banner">
-      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- DAY 5 -->
+    <div class="daypanel" id="d5">
+      <h2 class="day-title">千本鳥居．錦市場．本能寺</h2>
+      <div class="day-banner"><svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
         <rect width="720" height="200" fill="#F1E0C9"/>
-        <g fill="#9C3B2B">
-          <rect x="330" y="30" width="16" height="150"/>
-          <rect x="374" y="30" width="16" height="150"/>
-          <rect x="310" y="24" width="120" height="14" rx="2"/>
-          <rect x="322" y="46" width="96" height="9"/>
-        </g>
-        <g fill="#B8523C">
-          <rect x="270" y="50" width="14" height="130"/>
-          <rect x="306" y="50" width="14" height="130"/>
-          <rect x="254" y="44" width="96" height="12" rx="2"/>
-          <rect x="264" y="64" width="76" height="8"/>
-        </g>
-        <g fill="#C97354">
-          <rect x="210" y="66" width="12" height="114"/>
-          <rect x="242" y="66" width="12" height="114"/>
-          <rect x="198" y="60" width="76" height="11" rx="2"/>
-          <rect x="206" y="80" width="60" height="7"/>
-        </g>
-        <g fill="#D98D6F" opacity="0.8">
-          <rect x="150" y="82" width="10" height="98"/>
-          <rect x="178" y="82" width="10" height="98"/>
-          <rect x="140" y="77" width="58" height="9" rx="2"/>
-        </g>
-      </svg>
+        <g fill="#9C3B2B"><rect x="330" y="30" width="16" height="150"/><rect x="374" y="30" width="16" height="150"/><rect x="310" y="24" width="120" height="14" rx="2"/><rect x="322" y="46" width="96" height="9"/></g>
+        <g fill="#B8523C"><rect x="270" y="50" width="14" height="130"/><rect x="306" y="50" width="14" height="130"/><rect x="254" y="44" width="96" height="12" rx="2"/><rect x="264" y="64" width="76" height="8"/></g>
+        <g fill="#C97354"><rect x="210" y="66" width="12" height="114"/><rect x="242" y="66" width="12" height="114"/><rect x="198" y="60" width="76" height="11" rx="2"/><rect x="206" y="80" width="60" height="7"/></g>
+        <g fill="#D98D6F" opacity="0.8"><rect x="150" y="82" width="10" height="98"/><rect x="178" y="82" width="10" height="98"/><rect x="140" y="77" width="58" height="9" rx="2"/></g>
+      </svg></div>
+
+      <div class="item"><span class="item-time">早上</span><span class="item-tag food">飲食</span>
+        <div class="item-body">飯店自煮早餐</div>
+      </div>
+
+      <div class="item"><span class="item-time">上午</span><span class="item-tag move">交通</span>
+        <div class="item-body">從京都車站搭 JR 奈良線（約 5 分鐘）直達稻荷站，漫步經典的 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=伏見稻荷大社+千本鳥居" target="_blank" rel="noopener">千本鳥居</a></div>
+      </div>
+
+      <div class="item"><span class="item-time">中午</span>
+        <div class="item-body">伏見稻荷搭京阪電車至「祇園四条站」，跨過鴨川散步至 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=錦市場" target="_blank" rel="noopener">錦市場</a>，邊逛邊吃小吃或享用日式定食</div>
+      </div>
+
+      <div class="item"><span class="item-time">下午</span>
+        <div class="item-body">順著平坦遮雨的寺町通商店街往北走，參觀 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=本能寺+京都" target="_blank" rel="noopener">本能寺</a></div>
+      </div>
+
+      <div class="item"><span class="item-time">傍晚</span><span class="item-tag shop">採買</span>
+        <div class="item-body">回京都車站至大國藥妝採買藥妝，再到 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=AEON+KOYO+京都" target="_blank" rel="noopener">AEON 超市</a> 採買燒肉食材，回飯店自煮燒肉大餐 🥩</div>
+      </div>
     </div>
 
-    <div class="item">
-      <span class="item-time">早上</span>
-      <span class="item-tag food">飲食</span>
-      <div class="item-body">飯店自煮早餐</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">上午</span>
-      <span class="item-tag move">交通</span>
-      <div class="item-body">從京都車站搭 JR 奈良線（約 5 分鐘）直達稻荷站，漫步經典的 <span class="highlight">「千本鳥居」</span></div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">中午</span>
-      <div class="item-body">伏見稻荷搭京阪電車至「祇園四条站」，跨過鴨川散步至 <span class="highlight">錦市場</span>，邊逛邊吃小吃或享用日式定食</div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">下午</span>
-      <div class="item-body">順著平坦遮雨的寺町通商店街往北走，參觀 <span class="highlight">本能寺</span></div>
-    </div>
-
-    <div class="item">
-      <span class="item-time">傍晚</span>
-      <span class="item-tag shop">採買</span>
-      <div class="item-body">回京都車站至大國藥妝採買藥妝，再到 AEON 超市採買燒肉食材，回飯店自煮燒肉大餐 🥩</div>
-    </div>
-  </section>
-
-  <!-- Day 6 -->
-  <section class="day">
-    <div class="day-head">
-      <span class="day-num">DAY 6</span>
-      <span class="day-date">11/2（一）</span>
-    </div>
-    <h2 class="day-title">賦歸</h2>
-
-    <div class="day-banner">
-      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- DAY 6 -->
+    <div class="daypanel" id="d6">
+      <h2 class="day-title">賦歸</h2>
+      <div class="day-banner"><svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
         <rect width="720" height="200" fill="#F3E8D4"/>
         <path d="M0,160 Q140,130 280,155 T560,145 T720,158 L720,200 L0,200 Z" fill="#3E5641" opacity="0.18"/>
-        <g fill="#2B2420">
-          <path d="M420,150 L520,110 L600,90 L520,95 L420,60 L390,68 L340,40 L330,48 L390,80 L330,95 L342,105 L400,88 Z"/>
-        </g>
-        <g fill="#ffffff" opacity="0.55">
-          <ellipse cx="300" cy="60" rx="30" ry="10"/>
-          <ellipse cx="150" cy="90" rx="36" ry="11"/>
-        </g>
-        <g fill="#7A2C1F">
-          <rect x="90" y="150" width="46" height="34" rx="4"/>
-          <rect x="106" y="140" width="14" height="12" rx="2"/>
-        </g>
-        <circle cx="200" cy="45" r="5" fill="#B8863B"/>
-        <circle cx="230" cy="70" r="4" fill="#B8863B"/>
-      </svg>
+        <g fill="#2B2420"><path d="M420,150 L520,110 L600,90 L520,95 L420,60 L390,68 L340,40 L330,48 L390,80 L330,95 L342,105 L400,88 Z"/></g>
+        <g fill="#ffffff" opacity="0.55"><ellipse cx="300" cy="60" rx="30" ry="10"/><ellipse cx="150" cy="90" rx="36" ry="11"/></g>
+        <g fill="#7A2C1F"><rect x="90" y="150" width="46" height="34" rx="4"/><rect x="106" y="140" width="14" height="12" rx="2"/></g>
+        <circle cx="200" cy="45" r="5" fill="#B8863B"/><circle cx="230" cy="70" r="4" fill="#B8863B"/>
+      </svg></div>
+
+      <div class="item"><span class="item-time">07:50</span>
+        <div class="item-body">辦理退房，散步至八條口巴士總站</div>
+      </div>
+
+      <div class="item"><span class="item-time">08:20</span><span class="item-tag move">交通</span>
+        <div class="item-body">搭乘利木津巴士直達關西機場第一航廈</div>
+      </div>
+
+      <div class="item"><span class="item-time">11:55</span><span class="item-tag move">飛行</span>
+        <div class="item-body">搭乘長榮航空 <span class="highlight">BR 181</span>　平安返家 ✈️</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 預約資訊 ============ -->
+  <div class="tabpanel" id="book">
+    <div class="sectionhead">飯店資訊</div>
+    <div class="card">
+      <h3><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=GLANZ+KEI+Kyoto+Station" target="_blank" rel="noopener">GLANZ KEI Kyoto Station</a></h3>
+      <p class="en">〒601-8412　24-1 Nishikujo Inmachi, Minami Ward, Kyoto</p>
+      <p class="en">TEL：+81 75-661-6323</p>
     </div>
 
-    <div class="item">
-      <span class="item-time">07:50</span>
-      <div class="item-body">辦理退房，散步至八條口巴士總站</div>
+    <div class="sectionhead">交通工具資訊</div>
+
+    <div class="card">
+      <div class="sub">高鐵</div>
+      <div class="row"><span class="r-label">10/28（三）</span><span>0619 車次　嘉義站 → 左營站　10:50 發車</span></div>
+
+      <div class="sub">飛機</div>
+      <div class="row"><span class="r-label">去程</span><span>長榮航空 BR148　高雄國際機場 → 關西機場第一航廈<br>10/28（三）15:25 起飛 → 19:15 抵達</span></div>
+      <div class="row"><span class="r-label">回程</span><span>長榮航空 BR181　關西機場第一航廈 → 高雄國際機場<br>11/2（一）11:55 起飛 → 14:30 抵達</span></div>
+
+      <div class="sub">近鐵觀光特急</div>
+      <div class="row"><span class="r-label">10/31（六）</span><span>「AONIYOSHI 青丹吉」10:55 出發 → 11:30 抵達近鐵奈良站</span></div>
+
+      <div class="sub">利木津巴士</div>
+      <div class="row"><span class="r-label">11/2（一）</span><span>08:20 搭乘，八條口 → 關西機場第一航廈</span></div>
+    </div>
+  </div>
+
+  <!-- ============ 緊急聯絡 ============ -->
+  <div class="tabpanel" id="sos">
+    <div class="sectionhead">旅遊不便險</div>
+    <div class="card">
+      <h3>富邦產險　B 方案</h3>
+      <p>投保金額：新台幣 <span class="highlight">300 萬</span></p>
+      <p><a class="link" href="https://www.fubon.com/insurance/b2c/content/prod_travel/index.html?CHANNEL=B2B2C_EVAAIR-TKT-WEB&utm_source=evaair&utm_medium=tkt-web&utm_campaign=evaair-tkt-web" target="_blank" rel="noopener">查看保單內容 →</a></p>
     </div>
 
-    <div class="item">
-      <span class="item-time">08:20</span>
-      <span class="item-tag move">交通</span>
-      <div class="item-body">搭乘利木津巴士直達關西機場第一航廈</div>
+    <div class="sectionhead">日本緊急聯絡資訊</div>
+    <div class="card">
+      <p>日本觀光局（JNTO）緊急聯絡指南：</p>
+      <p><a class="link" href="https://www.jnto.go.jp/emergency/chc/mi_guide.html" target="_blank" rel="noopener">https://www.jnto.go.jp/emergency/chc/mi_guide.html</a></p>
+      <div class="sub">Japan Visitor Hotline</div>
+      <p>全年無休、24 小時對應，會說英文、中文</p>
+      <p class="highlight" style="font-size:20px;">050-3816-2787</p>
     </div>
+  </div>
 
-    <div class="item">
-      <span class="item-time">11:55</span>
-      <span class="item-tag move">飛行</span>
-      <div class="item-body">搭乘長榮航空 <span class="highlight">BR 181</span>　平安返家 ✈️</div>
+  <!-- ============ 行前清單 ============ -->
+  <div class="tabpanel" id="prep">
+    <div class="sectionhead">出發前準備</div>
+    <ul class="checklist" id="checklist">
+      <li><input type="checkbox"><span>護照（效期 6 個月以上）</span></li>
+      <li><input type="checkbox"><span>Suica / ICOCA 交通卡</span></li>
+      <li><input type="checkbox"><span>日幣現金</span></li>
+      <li><input type="checkbox"><span>充電器</span></li>
+      <li><input type="checkbox"><span>保暖外套（洋蔥式穿搭）</span></li>
+      <li><input type="checkbox"><span>好走的鞋子（多為步行、石板路）</span></li>
+      <li><input type="checkbox"><span>購物袋（超市採買、藥妝用）</span></li>
+      <li><input type="checkbox"><span>個人盥洗、保養用品</span></li>
+    </ul>
+  </div>
+
+  <!-- ============ 京都天氣 ============ -->
+  <div class="tabpanel" id="wx">
+    <div class="sectionhead">10 月底～11 月初　氣候參考</div>
+    <div class="card">
+      <p class="en" style="margin-bottom:14px;">依據日本氣象廳 1991～2020 年平年值統計</p>
+      <table class="weather-table">
+        <tr><th>月份</th><th>氣溫範圍</th><th>平均氣溫</th></tr>
+        <tr><td>10 月</td><td class="hi">14.4℃〜23.4℃</td><td>18.4℃</td></tr>
+        <tr><td>11 月</td><td class="lo">8.4℃〜17.3℃</td><td>12.5℃</td></tr>
+      </table>
+      <p>早晚溫差較大，是賞楓最佳時節。建議<span class="highlight">洋蔥式穿搭</span>：長袖襯衫＋針織外套或薄外套，若行程偏 11 月初可再帶一件稍厚的外套、圍巾備用。</p>
+      <div class="flag">此表為歷史平均值，僅供打包行李參考，並非出發當週的實際預報 ⛅</div>
+      <p style="margin-top:16px;">出發前 10 天內，可點下方連結查看即時 10 天天氣預報：</p>
+      <a class="weather-btn" href="https://tenki.jp/forecast/6/29/6110/26100/10days.html" target="_blank" rel="noopener">查看京都即時天氣預報 →</a>
     </div>
-  </section>
+  </div>
 
-  <footer>
-    京都．奈良　六日五夜　全家賞楓之旅　2026
-  </footer>
-
+  <footer>王家京都行　六日五夜　全家賞楓之旅　2026</footer>
 </div>
+
+<script>
+  // top-level tabs
+  document.querySelectorAll('.tabbtn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tabbtn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+  // day sub-tabs
+  document.querySelectorAll('.daybtn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.daybtn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.daypanel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.day).classList.add('active');
+    });
+  });
+  // checklist strike-through
+  document.querySelectorAll('#checklist input[type=checkbox]').forEach(cb=>{
+    cb.addEventListener('change', ()=>{
+      cb.closest('li').classList.toggle('checked', cb.checked);
+    });
+  });
+</script>
 </body>
 </html>
