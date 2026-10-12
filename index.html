@@ -77,6 +77,16 @@
   .highlight{color:var(--maple-deep);font-weight:700;}
   .flag{background:#FCEFC7;border-left:3px solid var(--gold);padding:8px 12px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;color:#6b5127;margin-top:10px;border-radius:0 4px 4px 0;}
 
+
+  /* ---------- History blurbs ---------- */
+  .history{margin-top:10px;font-family:"Noto Sans TC",sans-serif;}
+  .history summary{display:inline-block;cursor:pointer;list-style:none;font-size:13px;font-weight:600;color:var(--pine);background:#E7ECE5;border-radius:4px;padding:4px 12px;letter-spacing:0.03em;}
+  .history summary::-webkit-details-marker{display:none;}
+  .history summary::after{content:" ▾";}
+  .history[open] summary::after{content:" ▴";}
+  .history p{margin:8px 0 0;font-size:14px;line-height:1.85;color:#5b5143;background:#fff;border:1px solid var(--line);border-left:3px solid var(--pine);padding:10px 14px;border-radius:0 6px 6px 0;}
+  .history + .history{margin-top:8px;}
+
   .maplink{color:var(--maple-deep);text-decoration:none;border-bottom:1px dotted var(--maple-deep);font-weight:700;}
   .maplink::after{content:" 📍";font-size:12px;}
 
@@ -228,6 +238,8 @@
 
       <div class="item"><span class="item-time">下午</span>
         <div class="item-body">散步至鹿苑，於 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=奈良公園" target="_blank" rel="noopener">奈良公園</a> 大門附近的草地上買鹿仙貝，體驗餵鹿 🦌</div>
+
+        <details class="history"><summary>📖 奈良公園小故事</summary><p>奈良公園的鹿被視為春日大社神明的使者，相傳神明是騎著白鹿來到奈良的，所以千年來一直受到保護，現在被指定為國家天然紀念物，園內約有一千多頭。鹿會對著人鞠躬討鹿仙貝；餵完記得把兩手攤開給牠們看，就不會被追著跑囉。</p></details>
       </div>
 
       <div class="item"><span class="item-time"></span><span class="item-tag food">飲食</span>
@@ -236,6 +248,9 @@
 
       <div class="item"><span class="item-time">下午</span>
         <div class="item-body">參觀 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=東大寺" target="_blank" rel="noopener">東大寺</a>，順著平路漫步至鷺池上的 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=浮見堂+奈良" target="_blank" rel="noopener">浮見堂</a></div>
+
+        <details class="history"><summary>📖 東大寺小故事</summary><p>東大寺是奈良時代聖武天皇發願建造的，大佛在西元 752 年舉行開眼儀式，佛像高約 15 公尺。大佛殿曾數度燒毀，現在的建築是 1709 年重建的，寬度只剩原本的三分之二，卻仍是世界最大級的木造建築。殿內有一根柱子底部挖了一個洞，大小相傳和大佛的鼻孔一樣，據說鑽過去能消災。</p></details>
+        <details class="history"><summary>📖 浮見堂小故事</summary><p>浮見堂是蓋在鷺池上的六角形水上涼亭，池水映著涼亭的倒影，是奈良公園裡最受歡迎的拍照景點之一，傍晚光線柔和時拍起來特別好看。</p></details>
       </div>
 
       <div class="item"><span class="item-time"></span>
@@ -257,6 +272,9 @@
 
       <div class="item"><span class="item-time">傍晚</span><span class="item-tag food">飲食</span>
         <div class="item-body">散步至 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=道頓堀" target="_blank" rel="noopener">道頓堀川</a>，品嚐大阪有名的串炸 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=新世界串カツいっとく+道頓堀本店" target="_blank" rel="noopener">新世界串カツいっとく道頓堀本店</a></div>
+
+        <details class="history"><summary>📖 道頓堀小故事</summary><p>道頓堀是江戶時代初期（1612 年）由商人安井道頓出資開鑿的運河，後人為了紀念他而命名。後來兩岸聚集了戲院與茶屋，成為大阪最熱鬧的娛樂街，現在以固力果跑跑人、螃蟹看板與滿街美食聞名。</p></details>
+        <details class="history"><summary>📖 串炸小知識小故事</summary><p>串炸（串かつ）一般認為是新世界一帶的庶民美食。店裡的醬汁是大家共用的，所以有『沾過就不能再沾第二次』的規矩（二度づけ禁止），想多一點醬汁可以用店家提供的高麗菜葉舀醬汁淋上去。</p></details>
       </div>
 
       <div class="item"><span class="item-time"></span><span class="item-tag move">交通</span>
@@ -291,6 +309,8 @@
 
       <div class="item">
         <div class="item-body"><span class="highlight">第一站：<a class="maplink" href="https://www.google.com/maps/search/?api=1&query=西本願寺" target="_blank" rel="noopener">西本願寺</a></span><br>下車參觀氣派莊嚴的木造阿彌陀堂與百年大銀杏</div>
+
+        <details class="history"><summary>📖 西本願寺小故事</summary><p>西本願寺是淨土真宗本願寺派的總本山，1591 年豐臣秀吉捐地後遷建到現址，1994 年與京都其他古蹟一同列入世界遺產。境內的大銀杏相傳曾在江戶時代京都大火時噴出水來保護御影堂，所以又叫『水吹銀杏』。10 月底葉子通常還是綠的，要到 11 月中下旬才會轉黃。</p></details>
       </div>
 
       <div class="item"><span class="item-tag move">交通</span>
@@ -300,6 +320,8 @@
       <div class="item">
         <div class="item-body"><span class="highlight">第二站：<a class="maplink" href="https://www.google.com/maps/search/?api=1&query=二條城" target="_blank" rel="noopener">二條城</a></span><br>參觀將軍御所二之丸御殿（聽會發出鳥鳴聲的鸝鳴地板）與氣派庭園</div>
         <div class="flag">門票 ¥800</div>
+
+        <details class="history"><summary>📖 二條城小故事</summary><p>二條城是德川家康在 1603 年建造的京都住所。1867 年，第十五代將軍德川慶喜就在二之丸御殿的大廣間宣布『大政奉還』，把政權交還天皇，結束了江戶幕府二百六十多年的統治。走廊的地板踩上去會像黃鶯鳴叫（鶯張り），一說是為了防範刺客偷偷潛入。</p></details>
       </div>
 
       <div class="item"><span class="item-tag move">交通</span>
@@ -308,6 +330,9 @@
 
       <div class="item">
         <div class="item-body"><span class="highlight">第三站：<a class="maplink" href="https://www.google.com/maps/search/?api=1&query=清水寺" target="_blank" rel="noopener">清水寺</a></span><br>參觀懸空清水舞台，隨後順向走下坡漫步三年坂、二年坂</div>
+
+        <details class="history"><summary>📖 清水寺小故事</summary><p>清水寺創建於西元 778 年，名字來自境內的音羽瀑布（清水）。著名的舞台高約 13 公尺，由 18 根櫸木大柱支撐，整座建築完全不用一根釘子。江戶時代的人相信從舞台跳下去許願就能實現，日文『抱著從清水舞台跳下去的決心』就是『豁出去』的意思。</p></details>
+        <details class="history"><summary>📖 三年坂小故事</summary><p>三年坂又叫『產寧坂』，因為附近祈求平安生產的子安塔而得名。傳說在這條坡道跌倒的人三年內會有災厄，所以大家都小心翼翼慢慢走；據說買個葫蘆（瓢箪）帶在身上就能化解。石板路比較滑，爸媽慢慢走、不趕時間。</p></details>
       </div>
 
       <div class="item"><span class="item-tag food">飲食</span>
@@ -348,10 +373,16 @@
         <div class="item-body">搭乘嵐山小火車欣賞保津峽風光，在 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=嵐山駅+嵯峨野観光鉄道" target="_blank" rel="noopener">嵐山站</a> 下車</div>
         <div class="item-note">車程 20 分鐘</div>
         <div class="flag">旁邊有 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=御髪神社" target="_blank" rel="noopener">御髪神社</a> 可以逛逛 💈</div>
+
+        <details class="history"><summary>📖 嵯峨野小火車小故事</summary><p>嵯峨野小火車走的是 JR 山陰本線的舊路線，1989 年新線通車後廢棄，1991 年改裝成觀光小火車，沿著保津川峽谷行駛約 7 公里。你們訂的富貴 5 號車廂是沒有玻璃窗的開放式車廂，視野最棒，記得帶外套。</p></details>
+        <details class="history"><summary>📖 御髪神社小故事</summary><p>御髪神社是日本罕見以『頭髮』為主題的神社，祭祀的藤原政之被視為日本理髮業的始祖，所以不少美髮業者會來參拜，也有人來祈求頭髮健康烏黑。</p></details>
       </div>
 
       <div class="item"><span class="item-time"></span>
         <div class="item-body">漫步 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=嵐山竹林小径" target="_blank" rel="noopener">嵯峨野竹林小徑</a>，參訪世界遺產 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=天龍寺" target="_blank" rel="noopener">天龍寺</a> 與曹源池庭園</div>
+
+        <details class="history"><summary>📖 竹林小徑小故事</summary><p>竹林小徑兩旁是高大的孟宗竹，風吹過竹林的沙沙聲，被選為『日本音風景一百選』之一。清晨與傍晚人比較少，光線也最美。</p></details>
+        <details class="history"><summary>📖 天龍寺小故事</summary><p>天龍寺由足利尊氏在 1339 年創建，為了祭奠後醍醐天皇，是京都五山之首。相傳尊氏的弟弟夢見金龍從大堰川飛出，因而取名『天龍』。曹源池庭園是開山祖師夢窗疏石所造，仍保留約七百年前的樣貌，並借景嵐山，也是世界遺產的一部分。</p></details>
       </div>
 
       <div class="item"><span class="item-tag food">飲食</span>
@@ -360,6 +391,8 @@
 
       <div class="item"><span class="item-time">下午</span>
         <div class="item-body">逛嵐山大街、喝咖啡吃甜點，走到 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=渡月橋" target="_blank" rel="noopener">渡月橋</a> 欣賞河岸風光</div>
+
+        <details class="history"><summary>📖 渡月橋小故事</summary><p>渡月橋的名字有個浪漫的由來：鎌倉時代的龜山上皇看見月亮彷彿越過橋面，說了『像月亮在渡橋』，因而得名。現在的橋是 1934 年重建的，橋下的桂川（大堰川）兩岸風景優美。</p></details>
       </div>
 
       <div class="item"><span class="item-tag move">交通</span>
@@ -388,14 +421,20 @@
 
       <div class="item"><span class="item-tag move">交通</span>
         <div class="item-body">從京都車站搭 JR 奈良線（約 5 分鐘）直達稻荷站，漫步經典的 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=伏見稻荷大社+千本鳥居" target="_blank" rel="noopener">千本鳥居</a></div>
+
+        <details class="history"><summary>📖 千本鳥居小故事</summary><p>伏見稻荷大社創建於西元 711 年，是全日本約三萬座稻荷神社的總本社，祭祀掌管五穀豐收與商業興隆的稻荷神，狐狸是祂的使者。相傳江戶時代起，人們許願成真後會捐獻鳥居答謝，整座稻荷山據說有約一萬座，每座背面都刻有捐獻者與日期。</p></details>
       </div>
 
       <div class="item"><span class="item-time">中午</span>
         <div class="item-body">伏見稻荷搭京阪電車至「祇園四条站」，跨過鴨川散步至 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=錦市場" target="_blank" rel="noopener">錦市場</a>，邊逛邊吃小吃或享用日式定食</div>
+
+        <details class="history"><summary>📖 錦市場小故事</summary><p>錦市場全長約 400 公尺，有一百多間店鋪，被稱為『京都的廚房』。據說從 1615 年起這裡就有魚店聚集販售，已有四百年的歷史。逛的時候請在店家旁邊吃完再走，市場不鼓勵邊走邊吃。</p></details>
       </div>
 
       <div class="item"><span class="item-time">下午</span>
         <div class="item-body">順著平坦遮雨的寺町通商店街往北走，參觀 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=本能寺+京都" target="_blank" rel="noopener">本能寺</a></div>
+
+        <details class="history"><summary>📖 本能寺小故事</summary><p>本能寺創建於 1415 年，1582 年發生了著名的『本能寺之變』，織田信長在此遭明智光秀突襲自盡。事變後寺院被豐臣秀吉下令遷到現在的位置，所以你們參觀的是遷建後的寺院，信長當年身亡的舊址在往西一公里多的地方。</p></details>
       </div>
 
       <div class="item"><span class="item-time">傍晚</span><span class="item-tag shop">採買</span>
@@ -544,6 +583,7 @@
       cb.closest('li').classList.toggle('checked', cb.checked);
     });
   });
+  window.addEventListener('beforeprint', ()=>{ document.querySelectorAll('details.history').forEach(d=>d.open=true); });
 </script>
 </body>
 </html>
